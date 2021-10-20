@@ -1,0 +1,45 @@
+import os
+from dotenv import load_dotenv
+from os import listdir
+import random
+from time import sleep
+
+import telegram
+
+from fetch_spacex import fetch_spacex_last_launch_images
+from fetch_nasa import *
+
+def send_random_pic_from_dirs(tg_token, chat_id, dirs):
+    bot = telegram.Bot(token=tg_token)
+    with open(get_random_pic_from_dirs(dirs), "rb") as file:
+        bot.send_photo(chat_id=chat_id, photo=file)
+
+def get_random_pic_from_dirs(dirs):
+    random_dir = random.choice(dirs)
+    random_picture = random.choice(listdir(random_dir))
+    picture_path = f"{random_dir}/{random_picture}"
+    return picture_path
+
+if __name__ == '__main__':
+    load_dotenv()
+
+    spacex_dir = './spacex'
+    apod_dir = './nasa_apod'
+    epic_dir = './nasa_epic'
+
+    images_dirs = ['./spacex', './nasa_apod', './nasa_epic']
+
+    for image_dir in images_dirs:
+        os.makedirs(image_dir, exist_ok=True)
+
+    nasa_token = os.getenv("NASA_TOKEN")
+    tg_token = os.getenv("TG_TOKEN")
+    tg_chat_id = os.getenv("TG_CHAT_ID")
+
+    seconds_delay = 10
+    while True:
+        fetch_spacex_last_launch_images('./spacex')
+        fetch_nasa_epic(nasa_token, './nasa_epic')
+        fetch_nasa_apod(nasa_token, './nasa_apod')
+        send_random_pic_from_dirs(tg_token, tg_chat_id, images_dirs)
+        sleep(seconds_delay)
