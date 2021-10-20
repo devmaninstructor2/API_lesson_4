@@ -1,14 +1,16 @@
-# Space Instagram
+# FULLCOSMOS
 
-Space Instagram - маленькая утилита, скачивающая фотографии с hubble и с последнего запуска spacex и загружает их  в инстаграмм.
+FULLCOSMOS - маленькая утилита, скачивающая фотографии с nasa и spacex и загружает их  в телеграм канал.
 
 
 ### Как установить
+Предварительно необходимо создать телеграм бота и получить его токен, создать канал в телелеграм и получить его id, а также получить токен nasa
 
-Вам необходимо создать файл `.env` рядом с main.py и поместить свой логин от инстаграм в переменную INSTAGRAM_LOGIN, а пароль в INSTAGRAM_PASSWORD:
+Далее, вам необходимо создать файл `.env` рядом с main.py и поместить свой NASA токен в переменную NASA_TOKEN, токен вашего бота телеграм в TG_TOKEN и id канала в телеграм в TG_CHAT_ID:
 ```python
-INSTAGRAM_LOGIN="myverybestlogin"
-INSTAGRAM_PASSWORD="myverysafetypassword"
+NASA_TOKEN=NoCIHo8fhBS3PyclGht8EtBbe2VGrJoK5jk2dh4e
+TG_TOKEN=2058949722:AAEpEgg2s_LocfJ930wts3nIqwEubaXrvEI
+TG_CHAT_ID=@mychannelid
 ```
 
 Python3 должен быть уже установлен. 
@@ -20,12 +22,11 @@ pip install -r requirements.txt
 
 ### Примеры запуска
 
-Запускается скрипт без использования аргументов, после чего по окончанию работы в папке images и на вашем инстаграмм профиле появятся скачанные фотографии.
+Запускается скрипт без использования аргументов, после чего по окончанию работы создадутся папки spacex, nasa_apod и nasa_epic рядом с main.py и в ваш телеграм канала будут загружаться картинки раз в сутки.
 
 ```
 $ python main.py
 ```
-
 
 
 ### Цель проекта
