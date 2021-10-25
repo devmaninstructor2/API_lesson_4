@@ -12,13 +12,13 @@ from fetch_nasa import fetch_nasa_epic
 
 def send_random_pic_from_dirs(tg_token, chat_id, dirs):
     bot = telegram.Bot(token=tg_token)
-    with open(get_random_pic_from_dirs(dirs), "rb") as file:
+    with open(get_random_pic_from_dirs(dirs), 'rb') as file:
         bot.send_photo(chat_id=chat_id, photo=file)
 
 def get_random_pic_from_dirs(dirs):
     random_dir = random.choice(dirs)
     random_picture = random.choice(listdir(random_dir))
-    picture_path = f"{random_dir}/{random_picture}"
+    picture_path = f'{random_dir}/{random_picture}'
     return picture_path
 
 if __name__ == '__main__':
@@ -33,9 +33,9 @@ if __name__ == '__main__':
     for image_dir in image_dirs:
         os.makedirs(image_dir, exist_ok=True)
 
-    nasa_token = os.getenv("NASA_TOKEN")
-    tg_token = os.getenv("TG_TOKEN")
-    tg_chat_id = os.getenv("TG_CHAT_ID")
+    nasa_token = os.getenv('NASA_TOKEN')
+    tg_token = os.getenv('TG_TOKEN')
+    tg_chat_id = os.getenv('TG_CHAT_ID')
 
     seconds_delay = 10
     while True:
