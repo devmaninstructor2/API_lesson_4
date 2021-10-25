@@ -37,7 +37,7 @@ if __name__ == '__main__':
     tg_token = os.getenv('TG_TOKEN')
     tg_chat_id = os.getenv('TG_CHAT_ID')
 
-    seconds_delay = 10
+    seconds_delay = 86400
     while True:
         fetch_spacex_last_launch_images('./spacex')
         fetch_nasa_epic(nasa_token, './nasa_epic')
