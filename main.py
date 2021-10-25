@@ -28,9 +28,9 @@ if __name__ == '__main__':
     apod_dir = './nasa_apod'
     epic_dir = './nasa_epic'
 
-    images_dirs = ['./spacex', './nasa_apod', './nasa_epic']
+    image_dirs = ['./spacex', './nasa_apod', './nasa_epic']
 
-    for image_dir in images_dirs:
+    for image_dir in image_dirs:
         os.makedirs(image_dir, exist_ok=True)
 
     nasa_token = os.getenv("NASA_TOKEN")
