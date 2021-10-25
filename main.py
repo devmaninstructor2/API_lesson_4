@@ -1,10 +1,10 @@
 import os
-from dotenv import load_dotenv
 from os import listdir
 import random
 from time import sleep
 
 import telegram
+from dotenv import load_dotenv
 
 from fetch_spacex import fetch_spacex_last_launch_images
 from fetch_nasa import fetch_nasa_apod

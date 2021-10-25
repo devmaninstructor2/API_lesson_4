@@ -1,6 +1,8 @@
-import requests
 import os
 from urllib.parse import urlparse
+
+import requests
+
 
 def fetch_image(image_url, image_dir, image_name, payload = ''):
     filename = f'{image_dir}/{image_name}{get_file_ext_from_url(image_url)}'
