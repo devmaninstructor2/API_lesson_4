@@ -42,5 +42,5 @@ if __name__ == '__main__':
         fetch_spacex_last_launch_images('./spacex')
         fetch_nasa_epic(nasa_token, './nasa_epic')
         fetch_nasa_apod(nasa_token, './nasa_apod')
-        send_random_pic_from_dirs(tg_token, tg_chat_id, images_dirs)
+        send_random_pic_from_dirs(tg_token, tg_chat_id, image_dirs)
         sleep(seconds_delay)
