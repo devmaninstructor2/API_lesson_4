@@ -1,5 +1,5 @@
 import requests
-from fetch_image import *
+from fetch_image import fetch_image
 
 
 def fetch_spacex_last_launch_images(images_dir):

@@ -1,5 +1,5 @@
 import requests
-from fetch_image import *
+from fetch_image import fetch_image
 
 def fetch_nasa_epic(token, images_dir):
     epic_url = "https://api.nasa.gov/EPIC/api/natural/images"

@@ -7,7 +7,8 @@ from time import sleep
 import telegram
 
 from fetch_spacex import fetch_spacex_last_launch_images
-from fetch_nasa import *
+from fetch_nasa import fetch_nasa_apod
+from fetch_nasa import fetch_nasa_epic
 
 def send_random_pic_from_dirs(tg_token, chat_id, dirs):
     bot = telegram.Bot(token=tg_token)
