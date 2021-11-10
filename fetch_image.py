@@ -1,5 +1,6 @@
 import os
 from urllib.parse import urlparse
+from urllib.parse import unquote
 
 import requests
 
@@ -15,4 +16,5 @@ def fetch_image(image_url, image_dir, image_name, payload = ''):
 def get_file_ext_from_url(url):
     parsed_url_path = urlparse(url).path
     extension = os.path.splitext(parsed_url_path)[1]
-    return extension
+    decoded_extension = unquote(extension)
+    return decoded_extension
