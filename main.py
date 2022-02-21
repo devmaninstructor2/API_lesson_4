@@ -24,9 +24,9 @@ def get_random_pic_from_dirs(dirs):
 if __name__ == '__main__':
     load_dotenv()
 
-    spacex_dir = './spacex'
-    apod_dir = './nasa_apod'
-    epic_dir = './nasa_epic'
+    spacex_dir = '/spacex'
+    apod_dir = '/nasa_apod'
+    epic_dir = '/nasa_epic'
 
     image_dirs = [spacex_dir, apod_dir, epic_dir]
 
