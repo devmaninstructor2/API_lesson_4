@@ -28,7 +28,7 @@ if __name__ == '__main__':
     apod_dir = './nasa_apod'
     epic_dir = './nasa_epic'
 
-    image_dirs = ['./spacex', './nasa_apod', './nasa_epic']
+    image_dirs = [spacex_dir, apod_dir, epic_dir]
 
     for image_dir in image_dirs:
         os.makedirs(image_dir, exist_ok=True)
@@ -39,8 +39,8 @@ if __name__ == '__main__':
 
     seconds_delay = 86400
     while True:
-        fetch_spacex_last_launch_images('./spacex')
-        fetch_nasa_epic(nasa_token, './nasa_epic')
-        fetch_nasa_apod(nasa_token, './nasa_apod')
+        fetch_spacex_last_launch_images(spacex_dir)
+        fetch_nasa_epic(nasa_token, epic_dir)
+        fetch_nasa_apod(nasa_token, apod_dir)
         send_random_pic_from_dirs(tg_token, tg_chat_id, image_dirs)
         sleep(seconds_delay)
